@@ -2,3 +2,9 @@ test/*
 ./test/*
 src/*
 ./src/*
+.github/*
+.github
+src
+test
+.gitattributes
+.editorconfig
