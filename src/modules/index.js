@@ -87,7 +87,7 @@ fn.timer = function() {
 };
 
 fn.run = function() {
-	return new Promise( resolve => {
+	return new Promise( ( resolve, reject ) => {
 		( async() => {
 			this.timer();
 			this.log.processStart( this.name );
@@ -97,7 +97,7 @@ fn.run = function() {
 					continue;
 				}
 				if( !_.isUndefined( this[ $id ] ) ) {
-					await this[ $id ]( this.getConfig( $id, this.config[ $id ] ) );
+					await this[ $id ]( this.getConfig( $id, this.config[ $id ] ) ).catch( reason => reject(reason) );
 				} else if( !$id in excludeModule ) {
 					logError( `Module Error : ${chalk.blue( $id )} Not Found In Sofy Builder !!` );
 				}

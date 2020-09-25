@@ -122,12 +122,12 @@ ModuleHandler.prototype.concat = function( config ) {
  * @param config
  */
 ModuleHandler.prototype.webpack = function( config ) {
-	return new Promise( ( resolve ) => {
+	return new Promise( ( resolve, reject ) => {
 		this.log.header( 'WebPack' );
 
 		this.instance = this.instance.pipe( $revert_path() )
 							.pipe( $named() )
-							.pipe( $webpack( config ) )
+							.pipe( $webpack( config ) ).on( 'error', () => reject  )
 							.pipe( $revert_path() );
 		this.pipresolve( resolve );
 	} );
