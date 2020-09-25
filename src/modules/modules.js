@@ -1,6 +1,7 @@
 import ModuleHandler from "./base";
 import { logError } from "../helper";
-const gulp = require( 'gulp' );
+
+const gulp           = require( 'gulp' );
 const sass           = require( 'gulp-sass' );
 const $minify_css    = require( 'gulp-clean-css' );
 const $autoprefixer  = require( 'gulp-autoprefixer' );
@@ -8,7 +9,9 @@ const $babel         = require( 'gulp-babel' );
 const $uglify        = require( 'gulp-uglify' );
 const $combine_files = require( 'gulp-combine-files' );
 const $concat        = require( 'gulp-concat' );
-
+const $webpack       = require( 'webpack-stream' );
+const $revert_path   = require( 'gulp-revert-path' );
+const $named         = require( 'vinyl-named' );
 /**
  * Sass / scss Compiler
  * @param config
@@ -110,6 +113,22 @@ ModuleHandler.prototype.concat = function( config ) {
 		}
 
 
+		this.pipresolve( resolve );
+	} );
+};
+
+/**
+ * Handles Webpack.
+ * @param config
+ */
+ModuleHandler.prototype.webpack = function( config ) {
+	return new Promise( ( resolve ) => {
+		this.log.header( 'WebPack' );
+
+		this.instance = this.instance.pipe( $revert_path() )
+							.pipe( $named() )
+							.pipe( $webpack( config ) )
+							.pipe( $revert_path() );
 		this.pipresolve( resolve );
 	} );
 };
