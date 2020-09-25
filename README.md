@@ -1,45 +1,25 @@
-# Git Template
-Custom Github Template
+<p align="center">
+  <a href="https://www.instagram.com/sofythelabrador/">
+    <img  align="left"  width="250" src="https://cdn.svarun.dev/gh/varunsridharan/sofy/pic1.jpg">
+  </a>
+  Hi There Myself <strong><a href="https://www.instagram.com/sofythelabrador/">Sofy The Labrador</a></strong>
+  <br/>
+  i have been told converted into a virtual assistant to assist on your javascript related work and make your life easier by automainting certain process. :-)
+</p>
 
-[![Latest Stable Version][latest-stable-version-img]][lsvl]
-[![Latest Unstable Version][latest-Unstable-version-img]][luvl]
-[![Total Downloads][total-downloads-img]][tdl]
-[![WP][wpcs-img]][wpcsl]
-[![License][license-img]][licenselink]
-[![composer.lock available][composerlock-img]][composerlocklink]
-
-## ✅  Requirements
+---
 
 ## ⚙️Installation
 The preferred way to install this extension is through [Composer][composer].
 
-To install **VSP_Framework library**, simply:
+To install **Sofy**, simply:
 
-    $ composer require varunsridharan/vsp-framework
-
-The previous command will only install the necessary files, if you prefer to **download the entire source code** you can use:
-
-    $ composer require varunsridharan/vsp-framework --prefer-source
-
-You can also **clone the complete repository** with Git:
-
-    $ git clone https://github.com/varunsridharan/vsp-framework.git
-
-Or **install it manually**:
-
-[Download VSP_Framework.zip][downloadzip]:
-
-    $ wget https://github.com/varunsridharan/vsp-framework/archive/master.zip
+    $ npm install sofy
+    
 
 ## 🚀 Usage
+___Will Be Updated Soon___
 
-```php
-<?php
-
-// Some Code Here
-
-?>
-```
 ---
 
 ## 📝 Changelog
