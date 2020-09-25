@@ -1,0 +1,16 @@
+body {
+	color: red;
+
+	div#somename {
+		background: blue;
+		padding:    200px;
+
+		> .myclass {
+			user-select: none;
+			background:  linear-gradient(to bottom, white, black);
+		}
+	}
+}
+
+
+
