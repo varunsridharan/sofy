@@ -1,6 +1,6 @@
 {
   "name": "sofy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extended Javascript Bundler",
   "bin": {
     "sofy": "./bin/sofy.js"
