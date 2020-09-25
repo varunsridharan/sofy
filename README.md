@@ -2,13 +2,13 @@
   <a href="https://www.instagram.com/sofythelabrador/">
     <img  align="left"  width="250" src="https://cdn.svarun.dev/gh/varunsridharan/sofy/pic1.jpg">
   </a>
-  <br/><br/><br/>
+  <br/><br/>
   Hi There Myself <strong><a href="https://www.instagram.com/sofythelabrador/">Sofy The Labrador</a></strong>
   <br/><br/>
   i have been converted into a virtual assistant to assist on your javascript related work <br/> <br/> make your life easier by automainting certain process. :-)
 </p>
 
-<br/><br/><br/><br/>  
+<br/><br/> 
 
 ## ⚙️Installation
 The preferred way to install this extension is through [Composer][composer].
