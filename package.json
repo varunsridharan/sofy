@@ -1,0 +1,43 @@
+{
+  "name": "sofy",
+  "version": "1.0.0",
+  "description": "Extended Javascript Bundler",
+  "bin": {
+    "sofy": "./bin/sofy.js"
+  },
+  "scripts": {
+    "test": "./bin/sofy.js",
+    "build": "rollup -c",
+    "dev": "rollup -c --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varunsridharan/sofy.git"
+  },
+  "keywords": [],
+  "author": "varunsridharan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varunsridharan/sofy/issues"
+  },
+  "dependencies": {
+    "gulp": "*",
+    "gulp-sass": "*",
+    "gulp-babel": "*",
+    "gulp-uglify": "*",
+    "gulp-combine-files": "*",
+    "gulp-clean-css": "*",
+    "gulp-concat": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-rename": "*",
+    "@rollup/plugin-run": "^2.0.2",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "lodash": "^4.17.20",
+    "chalk": "^4.1.0",
+    "commander": "^6.1.0",
+    "rollup": "^2.26.11",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "homepage": "https://github.com/varunsridharan/sofy#readme"
+}
