@@ -1,5 +1,3 @@
-import { getUserConfig } from "../helpers/config-handler";
-import ModuleHandler from "../modules/index";
 import processUserFiles from "./compile";
 
 const _ = require( 'lodash' );

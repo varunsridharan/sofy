@@ -97,7 +97,8 @@ fn.run = function() {
 					continue;
 				}
 				if( !_.isUndefined( this[ $id ] ) ) {
-					await this[ $id ]( this.getConfig( $id, this.config[ $id ] ) ).catch( reason => reject(reason) );
+					await this[ $id ]( this.getConfig( $id, this.config[ $id ] ) )
+						.catch( reason => reject( { msg: reason, instance: this } ) );
 				} else if( !$id in excludeModule ) {
 					logError( `Module Error : ${chalk.blue( $id )} Not Found In Sofy Builder !!` );
 				}
@@ -106,7 +107,7 @@ fn.run = function() {
 			let place = await this.save();
 			this.log.plain( `   ✔ Compiled & Saved In ${chalk.green( place )}` );
 			this.log.processEnd( this.name, this.timer() );
-			resolve();
+			resolve( { msg: false, instance: this } );
 		} )();
 	} );
 }

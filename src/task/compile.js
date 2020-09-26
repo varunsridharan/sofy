@@ -8,10 +8,10 @@ const notifier = require( 'node-notifier' );
 function initSingleFile( src, data ) {
 	return new Promise( resolve => {
 		let $ins = new ModuleHandler( src, data );
-		$ins.run().then( () => {
+		$ins.run().then( ( reason ) => {
 			notifier.notify( {
 				title: `Wooofff. Success`,
-				message: `${src} File Successfully Processed`,
+				message: `${reason.instance.name} File Successfully Processed`,
 				wait: false,
 				sound: config.sound,
 				icon: config.icon.success
@@ -19,7 +19,7 @@ function initSingleFile( src, data ) {
 		} ).catch( reason => {
 			notifier.notify( {
 				title: `Woff !! Error Occured.`,
-				message: `Unable To Process ${src} Please Check Terminal For Logs`,
+				message: `Unable To Process ${reason.instance.name} Please Check Terminal For Logs`,
 				wait: false,
 				sound: config.sound,
 				icon: config.icon.error
