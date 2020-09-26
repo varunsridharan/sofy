@@ -12,6 +12,7 @@ export default function sofy() {
 	program
 		.option( '-c, --config [location]', 'Custom Location For Config File', './sofy.js' )
 		.option( '--compile', 'Triggers Build For All Files Listed In Config File' )
+		.option( '--watch', 'Watches For Files For Updates & Triggers Process.' )
 		.option( '--create [location]', 'Location On Where To Create The Config File' )
 		.parse( process.argv );
 

@@ -5,7 +5,7 @@ import config from "../app-config";
 const _        = require( 'lodash' );
 const notifier = require( 'node-notifier' );
 
-function initSingleFile( src, data, type = 'general' ) {
+export function initSingleFile( src, data, type = 'general' ) {
 	return new Promise( resolve => {
 		let $ins = new ModuleHandler( src, data, type );
 		$ins.run().then( ( reason ) => {

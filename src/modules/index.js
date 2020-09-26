@@ -12,7 +12,7 @@ const $rename       = require( 'gulp-rename' );
 const through       = require( 'through2' );
 const _             = require( 'lodash' );
 const fn            = ModuleHandler.prototype;
-const excludeModule = [ 'dist', 'log', 'pipresolve' ];
+const excludeModule = [ 'dist', 'log', 'pipresolve', 'watch' ];
 const nxtLine       = `
 `;
 
