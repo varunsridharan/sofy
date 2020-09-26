@@ -12,6 +12,7 @@ const $concat        = require( 'gulp-concat' );
 const $webpack       = require( 'webpack-stream' );
 const $revert_path   = require( 'gulp-revert-path' );
 const $named         = require( 'vinyl-named' );
+
 /**
  * Sass / scss Compiler
  * @param config
@@ -127,7 +128,7 @@ ModuleHandler.prototype.webpack = function( config ) {
 
 		this.instance = this.instance.pipe( $revert_path() )
 							.pipe( $named() )
-							.pipe( $webpack( config ) ).on( 'error', () => reject  )
+							.pipe( $webpack( config ) ).on( 'error', () => reject )
 							.pipe( $revert_path() );
 		this.pipresolve( resolve );
 	} );

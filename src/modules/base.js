@@ -3,11 +3,13 @@ const gulp = require( 'gulp' );
  * Sofy Module Base Handler.
  * @param $src string
  * @param $config array/object
+ * @param $type
  */
-export default function( $src, $config ) {
+export default function( $src, $config, $type = 'general' ) {
 	this.src    = $src;
 	this.config = $config;
 	this.name   = this.src;
+	this.type   = $type;
 
 	if( typeof this.config.src !== 'undefined' ) {
 		this.src = this.config.src;
@@ -19,6 +21,8 @@ export default function( $src, $config ) {
 		delete this.config.name;
 	}
 
-	this.instance  = gulp.src( this.src );
+	if( 'general' === this.type ) {
+		this.instance = gulp.src( this.src );
+	}
 	this.timeTaken = false;
 }

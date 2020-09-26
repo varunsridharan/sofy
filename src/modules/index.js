@@ -92,20 +92,22 @@ fn.run = function() {
 			this.timer();
 			this.log.processStart( this.name );
 
-			for( let $id in this.config ) {
-				if( false === this.config[ $id ] ) {
-					continue;
+			if( 'general' === this.type ) {
+				for( let $id in this.config ) {
+					if( false === this.config[ $id ] ) {
+						continue;
+					}
+					if( !_.isUndefined( this[ $id ] ) ) {
+						await this[ $id ]( this.getConfig( $id, this.config[ $id ] ) )
+							.catch( reason => reject( { msg: reason, instance: this } ) );
+					} else if( !$id in excludeModule ) {
+						logError( `Module Error : ${chalk.blue( $id )} Not Found In Sofy Builder !!` );
+					}
 				}
-				if( !_.isUndefined( this[ $id ] ) ) {
-					await this[ $id ]( this.getConfig( $id, this.config[ $id ] ) )
-						.catch( reason => reject( { msg: reason, instance: this } ) );
-				} else if( !$id in excludeModule ) {
-					logError( `Module Error : ${chalk.blue( $id )} Not Found In Sofy Builder !!` );
-				}
+				let place = await this.save();
+				this.log.plain( `   ✔ Compiled & Saved In ${chalk.green( place )}` );
 			}
 
-			let place = await this.save();
-			this.log.plain( `   ✔ Compiled & Saved In ${chalk.green( place )}` );
 			this.log.processEnd( this.name, this.timer() );
 			resolve( { msg: false, instance: this } );
 		} )();

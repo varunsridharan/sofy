@@ -5,9 +5,9 @@ import config from "../app-config";
 const _        = require( 'lodash' );
 const notifier = require( 'node-notifier' );
 
-function initSingleFile( src, data ) {
+function initSingleFile( src, data, type = 'general' ) {
 	return new Promise( resolve => {
-		let $ins = new ModuleHandler( src, data );
+		let $ins = new ModuleHandler( src, data, type );
 		$ins.run().then( ( reason ) => {
 			notifier.notify( {
 				title: `Wooofff. Success`,
@@ -24,6 +24,7 @@ function initSingleFile( src, data ) {
 				sound: config.sound,
 				icon: config.icon.error
 			} );
+			console.log( reason.msg );
 		} ).finally( () => {
 			resolve();
 		} );
@@ -46,13 +47,16 @@ function processArrayofUserFiles( src, data ) {
 }
 
 export default async function processUserFiles() {
-	let $files = getUserConfig().files;
+	let $userConig = getUserConfig();
+	let $files     = $userConig.files;
 
-	for( let $id in $files ) {
-		if( _.isArray( $files[ $id ] ) ) {
-			await processArrayofUserFiles( $id, $files[ $id ] );
-		} else {
-			await initSingleFile( $id, $files[ $id ] );
+	if( !_.isEmpty( $files ) && _.isObject( $files ) ) {
+		for( let $id in $files ) {
+			if( _.isArray( $files[ $id ] ) ) {
+				await processArrayofUserFiles( $id, $files[ $id ] );
+			} else {
+				await initSingleFile( $id, $files[ $id ] );
+			}
 		}
 	}
 }
