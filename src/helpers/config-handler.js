@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 import config from "../app-config";
 import defaultConfigData from "../plugins-config";
-import { cwd, logError, rtrim } from "../helper";
+import { cwd, rtrim } from "../helper";
+import { logError } from "../logger";
 
 const _ = require( 'lodash' );
 

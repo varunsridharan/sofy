@@ -1,8 +1,9 @@
 import path from "path";
 import config from "../app-config";
 import fs from "fs";
-import { internalPath, log, logError, logSuccess, rtrim } from "../helper";
+import { internalPath, rtrim } from "../helper";
 import chalk from "chalk";
+import { log, logError, logSuccess } from "../logger";
 
 const _ = require( 'lodash' );
 export default function createConfigFile( location ) {

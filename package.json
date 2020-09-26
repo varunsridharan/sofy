@@ -44,7 +44,11 @@
     "rollup-plugin-babel": "*",
     "babel-core": "*",
     "babel-loader": "*",
-    "webpack-bundle-analyzer": "*"
+    "rollup-plugin-commonjs": "*",
+    "rollup-plugin-node-resolve": "*",
+    "rollup-plugin-uglify": "*",
+    "rollup-plugin-filesize": "*",
+    "rollup-plugin-visualizer": "*"
   },
   "homepage": "https://github.com/varunsridharan/sofy#readme"
 }

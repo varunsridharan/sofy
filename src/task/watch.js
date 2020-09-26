@@ -1,5 +1,6 @@
 import { getUserConfig } from "../helpers/config-handler";
 import { initSingleFile } from "./compile";
+import { log, logProcessStart } from "../logger";
 
 const { watch } = require( 'gulp' );
 const _         = require( 'lodash' );
@@ -9,6 +10,7 @@ function handleSingleWatch( $_src, $file ) {
 	let $watch = ( !_.isUndefined( $file.watch ) && false !== $file.watch ) ? $file.watch : false;
 	$watch     = ( true === $watch ) ? $src : $watch;
 	if( false !== $watch ) {
+		logProcessStart( $_src, 'Watching' );
 		watch( $watch, { queue: true }, function( cb ) {
 			// body omitted
 			initSingleFile( $src, $file ).finally( () => cb() );
@@ -31,4 +33,5 @@ export default function() {
 			}
 		}
 	}
+	log( '' );
 }

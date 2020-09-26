@@ -1,5 +1,5 @@
 import ModuleHandler from "./base";
-import { logError } from "../helper";
+import { logError, logHeader } from "../logger";
 
 const gulp           = require( 'gulp' );
 const sass           = require( 'gulp-sass' );
@@ -20,7 +20,7 @@ const $named         = require( 'vinyl-named' );
  */
 ModuleHandler.prototype.scss = function( config = {} ) {
 	return new Promise( resolve => {
-		this.log.header( 'SCSS' );
+		logHeader( 'SCSS' );
 		this.instance = this.instance.pipe( sass( config ).on( 'error', sass.logError ) );
 		this.pipresolve( resolve );
 	} );
@@ -33,8 +33,8 @@ ModuleHandler.prototype.scss = function( config = {} ) {
  */
 ModuleHandler.prototype.minify = function( config = {} ) {
 	return new Promise( ( resolve ) => {
-		this.log.header( 'Minify' );
-		this.instance = this.instance.pipe( $minify_css( config ) ).on( 'error', this.log.error );
+		logHeader( 'Minify' );
+		this.instance = this.instance.pipe( $minify_css( config ) ).on( 'error', logError );
 		this.pipresolve( resolve );
 	} );
 };
@@ -46,7 +46,7 @@ ModuleHandler.prototype.minify = function( config = {} ) {
  */
 ModuleHandler.prototype.autoprefixer = function( config = {} ) {
 	return new Promise( ( resolve ) => {
-		this.log.header( 'Autoprefixer' );
+		logHeader( 'Autoprefixer' );
 		this.instance = this.instance.pipe( $autoprefixer( config ) ).on( 'error', logError );
 		this.pipresolve( resolve );
 	} );
@@ -59,7 +59,7 @@ ModuleHandler.prototype.autoprefixer = function( config = {} ) {
  */
 ModuleHandler.prototype.babel = function( config ) {
 	return new Promise( ( resolve ) => {
-		this.log.header( 'Babel' );
+		logHeader( 'Babel' );
 		this.instance = this.instance.pipe( $babel( config ) ).on( 'error', logError );
 		this.pipresolve( resolve );
 	} );
@@ -72,7 +72,7 @@ ModuleHandler.prototype.babel = function( config ) {
  */
 ModuleHandler.prototype.uglify = function( config ) {
 	return new Promise( ( resolve ) => {
-		this.log.header( 'Uglify' );
+		logHeader( 'Uglify' );
 		this.instance = this.instance.pipe( $uglify( config ) ).on( 'error', logError );
 		this.pipresolve( resolve );
 	} );
@@ -85,7 +85,7 @@ ModuleHandler.prototype.uglify = function( config ) {
  */
 ModuleHandler.prototype.combine_files = function( config ) {
 	return new Promise( ( resolve ) => {
-		this.log.header( 'Combine Files' );
+		logHeader( 'Combine Files' );
 		this.instance = this.instance.pipe( $combine_files( config ) );
 		this.pipresolve( resolve );
 	} );
@@ -98,7 +98,7 @@ ModuleHandler.prototype.combine_files = function( config ) {
  */
 ModuleHandler.prototype.concat = function( config ) {
 	return new Promise( ( resolve ) => {
-		this.log.header( 'Concat Files' );
+		logHeader( 'Concat Files' );
 		if( typeof config.options === 'object' && typeof config.options.filename !== 'undefined' ) {
 			if( config.src ) {
 				this.instance = this.instance.pipe( gulp.src( config.src ) )
@@ -124,7 +124,7 @@ ModuleHandler.prototype.concat = function( config ) {
  */
 ModuleHandler.prototype.webpack = function( config ) {
 	return new Promise( ( resolve, reject ) => {
-		this.log.header( 'WebPack' );
+		logHeader( 'WebPack' );
 
 		this.instance = this.instance.pipe( $revert_path() )
 							.pipe( $named() )

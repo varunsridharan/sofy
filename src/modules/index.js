@@ -1,8 +1,9 @@
 import ModuleHandler from "./base";
 import "./modules";
-import { cwd, getFormattedTime, log, logError, rtrim } from "../helper";
+import { cwd, rtrim } from "../helper";
 import chalk from "chalk";
 import { getAddonConfig } from "../helpers/config-handler";
+import { log, logError, logProcessEnd, logProcessStart } from "../logger";
 
 /**
  * Gulp Related
@@ -16,7 +17,7 @@ const excludeModule = [ 'dist', 'log', 'pipresolve', 'watch' ];
 const nxtLine       = `
 `;
 
-fn.log = {
+/*fn.log = {
 	section: () => log( nxtLine ),
 
 	plain: ( x ) => log( `${x}` ),
@@ -29,12 +30,12 @@ fn.log = {
 
 	fileHeader: ( x ) => log( `Using File : ${chalk.bgBlueBright.whiteBright( `${x}` )}` ),
 
-	processStart: ( x ) => log( `[${chalk.yellow( getFormattedTime() )}] ${chalk.magenta( 'Starting' )} ${chalk.black( `'${x}'` )}` ),
+	processStart: ( x, processName = 'Starting' ) => log( `[${chalk.yellow( getFormattedTime() )}] ${chalk.magenta( processName )} ${chalk.black( `'${x}'` )}` ),
 
 	processEnd: ( src, time ) => {
 		log( `[${chalk.yellow( getFormattedTime() )}] ${chalk.magenta( 'Finished' )} ${chalk.black( `'${src}'` )} ${chalk.magenta( 'after' )} ${chalk.yellow( time )} ${chalk.magenta( 'ms' )} ${nxtLine}` );
 	},
-};
+};*/
 
 fn.getConfig = function( type, userConfig ) {
 	let global_config = getAddonConfig();
@@ -90,7 +91,7 @@ fn.run = function() {
 	return new Promise( ( resolve, reject ) => {
 		( async() => {
 			this.timer();
-			this.log.processStart( this.name );
+			logProcessStart( this.name );
 
 			if( 'general' === this.type ) {
 				for( let $id in this.config ) {
@@ -105,10 +106,10 @@ fn.run = function() {
 					}
 				}
 				let place = await this.save();
-				this.log.plain( `   ✔ Compiled & Saved In ${chalk.green( place )}` );
+				log( `   ✔ Compiled & Saved In ${chalk.green( place )}` );
 			}
 
-			this.log.processEnd( this.name, this.timer() );
+			logProcessEnd( this.name, this.timer() );
 			resolve( { msg: false, instance: this } );
 		} )();
 	} );
