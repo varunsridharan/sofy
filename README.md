@@ -15,12 +15,98 @@ The preferred way to install this extension is through [Composer][composer].
 
 To install **Sofy**, simply:
 
-    $ npm install sofy
+    $ npm install sofy --save-dev
     
 
 ## 🚀 Usage
-___Will Be Updated Soon___
 
+### Step 1
+Simply run the below cmd from your project root
+
+    $ sofy --create
+This will create ___sofy.js___ file in your project root which looks like below
+```javascript
+const files  = {};
+const config = {};
+
+module.exports = {
+	files: files,
+	config: config,
+};
+```
+
+### Step 2
+Customize ___sofy.js___ based on your needs
+
+> Sample Config File
+```javascript
+module.exports = {
+	files: {
+		// Single Compile Options
+		'dir/your-file-source': {
+			dist: 'path-to-save',
+			rename: 'custom-file-name',
+			bable: {
+			// Your Custom Config For **Babel** 
+			// Or Set True to use deafult config provided by Easy Gulp Tasker Plugin.
+			// If not pass a custom string and use that string in the config array to build your own common config.
+			},
+			watch:['file1','file2','file3'] // enter the files that are needed to be watched to trigger the above actions.
+		},
+
+		// Multiple Compile Options
+		'dir2/your-file-source': [
+			{
+				dist: 'path-to-save',
+				rename: 'custom-file-name',
+				bable: true
+			},
+			{
+				dist: 'path-to-save',
+				rename: 'custom-file-name',
+				bable: true,
+				uglify: true
+			}
+		]
+	},
+
+	config: {
+		// Here you can write your custom config
+		bable_custom_config1: {
+			presets: [ '@babel/env' ],
+		}
+	},
+};
+```
+
+### Step 3
+Run any of the below cmd to use this plugin
+
+The below cmd will compile all the files are listed in the ___sofy.js___
+> $ sofy --compile
+
+The below cmd will trigger `gulp.watch` function to keep track of files changes and compiles the given file.
+> $ sofy --watch
+
+## Builtin Tasks
+Blow is a list of task / config options for each file object.
+
+### General
+* `dist:'file-save-path'` | Location On Where To Save The File.
+* `rename:'custom-file-name'` | Custom File Name To Save Compiled File
+* `watch:['file1','file2','file3'] ` | An Array of files to keep an eye for change to trigger its tasks / provide a single file name / set it to true
+* `concat:true` | Please Refer To [Gulp Concat](http://npmjs.com/package/gulp-concat)
+* `combine_files:true` | Please Refer To [Gulp Combine Files](https://www.npmjs.com/package/gulp-combine-files)
+
+### SCSS / CSS
+* `scss:true` | Converts SCSS Into CSS
+* `minify:true` | Minify Source.
+* `autoprefixer:true` | Autoprefix All CSS Properties.
+
+### Javascript
+* `webpack:true` | Run's Webpack To Compile / Bundle a file
+* `bable:true` | Run's Babel To Convert **EM6 => EM6**
+* `uglify:true` | Minify JS Soure Code
 ---
 
 ## 📝 Changelog
