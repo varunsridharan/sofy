@@ -4,6 +4,7 @@ import config from "../app-config";
 
 const _        = require( 'lodash' );
 const notifier = require( 'node-notifier' );
+let notifyID   = 0;
 
 export function initSingleFile( src, data, type = 'general' ) {
 	return new Promise( resolve => {
@@ -12,17 +13,19 @@ export function initSingleFile( src, data, type = 'general' ) {
 			notifier.notify( {
 				title: `Wooofff. Success`,
 				message: `${reason.instance.name} File Successfully Processed`,
-				wait: false,
 				sound: config.sound,
-				icon: config.icon.success
+				appID: 'Sofy',
+				icon: config.icon.success,
+				id: notifyID++,
 			} );
 		} ).catch( reason => {
 			notifier.notify( {
 				title: `Woff !! Error Occured.`,
 				message: `Unable To Process ${reason.instance.name} Please Check Terminal For Logs`,
-				wait: false,
 				sound: config.sound,
-				icon: config.icon.error
+				appID: 'Sofy',
+				icon: config.icon.error,
+				id: notifyID++,
 			} );
 			console.log( reason.msg );
 		} ).finally( () => {
