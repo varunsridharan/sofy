@@ -6,16 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-## 1.0 - 01/02/2020
-### Added
+## 1.0.4 - 27/09/2020
+* Updated All Rollup Plugins
 
-### Changed
+## 1.0.3 - 26/09/2020
+* First Stable Release
 
-### Deprecated
+## 1.0.2 - 25/09/2020
+* Removed Few Files Getting Published In NPM
 
-### Removed
+## 1.0.1 - 25/09/2020
+* Removed Few Files Getting Published In NPM
 
-### Fixed
-
-### Security
+## 1.0.0 - 25/09/2020
+* First Release
 
