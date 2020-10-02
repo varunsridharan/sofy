@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## 1.0.5 - 02/10/2020
+* Updated License To MIT
+* Published In Github Package Registry
+
 ## 1.0.4 - 27/09/2020
 * Updated All Rollup Plugins
 
