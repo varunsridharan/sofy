@@ -12,11 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/varunsridharan/sofy.git"
+    "url": "https://github.com/varunsridharan/sofy.git"
   },
   "keywords": [],
   "author": "varunsridharan",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/varunsridharan/sofy/issues"
   },
