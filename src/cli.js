@@ -13,11 +13,17 @@ export default function sofy() {
 		.option( '-c, --config [location]', 'Custom Location For Config File', './sofy.js' )
 		.option( '--compile', 'Triggers Build For All Files Listed In Config File' )
 		.option( '--watch', 'Watches For Files For Updates & Triggers Process.' )
-		.option( '--create [location]', 'Location On Where To Create The Config File' )
+		.option( '--create [location]', 'Creates Sofy\'s Config file' )
+		.option( '--rollup [location]', 'Creates Rollups\' Config File' )
+		.option( '--npm [location]', 'Creates NPM Config File' )
 		.parse( process.argv );
 
 	if( !_.isUndefined( program.create ) ) {
-		createConfigFile( program.create );
+		createConfigFile( program.create, 'sofy' );
+	} else if( !_.isUndefined( program.rollup ) ) {
+		createConfigFile( program.rollup, 'rollup' );
+	} else if( !_.isUndefined( program.npm ) ) {
+		createConfigFile( program.npm, 'npm' );
 	} else {
 		validateConfigFile( program.config );
 		triggerTask( program );
