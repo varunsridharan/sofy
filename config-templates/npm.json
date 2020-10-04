@@ -1,0 +1,28 @@
+{
+  "name"            : "",
+  "version"         : "0.0.0",
+  "description"     : "",
+  "main"            : "./src/index.js",
+  "author"          : "Varun Sridharan <varunsridharan23@gmail.com> (https://varunsridharan.in)",
+  "funding"         : "https://sva.onl/sponsor",
+  "keywords"        : [ ],
+  "dependencies"    : { },
+  "devDependencies" : { },
+  "scripts"         : {
+    "rollup-build" : "rollup -c",
+    "rollup-watch" : "rollup -c --watch",
+    "sofy-build"   : "sofy --compile",
+    "sofy-watch"   : "sofy --watch",
+    "build"        : "rollup -c && sofy --compile",
+    "watch"        : "rollup -c --watch && sofy --watch"
+  },
+  "homepage"        : "https://github.com/varunsridharan/",
+  "bugs"            : {
+    "url" : "https://github.com/varunsridharan/"
+  },
+  "repository"      : {
+    "type" : "git",
+    "url"  : "https://github.com/varunsridharan/.git"
+  },
+  "license"         : "MIT"
+}
