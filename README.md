@@ -90,6 +90,19 @@ The below cmd will compile all the files are listed in the ___sofy.js___
 The below cmd will trigger `gulp.watch` function to keep track of files changes and compiles the given file.
 > $ sofy --watch
 
+Below cmd will create a basic **Sofy** Config File
+> $ sofy --create sofy ./ 
+
+Below CMD will create a basic **RollUP** Config File
+> $ sofy --create rollup ./
+
+Below CMD will create a basic **Package.json** Config File
+> $ sofy --create npm ./
+
+---
+
+> Running `sofy --create all ./` will create all config files
+
 ## Builtin Tasks
 Blow is a list of task / config options for each file object.
 

@@ -1,7 +1,8 @@
 {
   "name": "sofy",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Extended Javascript Bundler",
+  "funding": "https://sva.onl/sponsor",
   "bin": {
     "sofy": "./bin/sofy.js"
   },
@@ -14,8 +15,8 @@
     "type": "git",
     "url": "https://github.com/varunsridharan/sofy.git"
   },
-  "keywords": [],
-  "author": "varunsridharan",
+  "keywords": [ "bundler", "modular", "extensible", "web", "projects", "js", "scss", "gulp","webpack","rollup","scss","sass","es6","es5","js-bundler","babel"  ],
+  "author": "Varun Sridharan <varunsridharan23@gmail.com> (https://varunsridharan.in)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/varunsridharan/sofy/issues"
@@ -51,7 +52,10 @@
     "@rollup/plugin-node-resolve": "*",
     "rollup-plugin-uglify": "*",
     "rollup-plugin-filesize": "*",
-    "rollup-plugin-visualizer": "*"
+    "rollup-plugin-visualizer": "*",
+    "rollup-plugin-terser": "*",
+    "@ampproject/rollup-plugin-closure-compiler": "*",
+    "rollup-plugin-license": "*"
   },
   "homepage": "https://github.com/varunsridharan/sofy#readme"
 }
