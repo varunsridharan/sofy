@@ -27,9 +27,10 @@ export default function createConfigFile( location, type = 'sofy' ) {
 				process.exit( 1 );
 			}
 
+			log( '' );
 			logSuccess( `Success File Created` );
 			log( chalk.blue( `Location : ${location}` ) );
-			let logmsg = '';
+			let logmsg = false;
 
 			if( 'sofy' === type ) {
 				logmsg = `${chalk.dim( `Invoke CMD :` )} node sofy`;
@@ -45,7 +46,9 @@ export default function createConfigFile( location, type = 'sofy' ) {
 				}
 			}
 
-			log( logmsg );
+			if( logmsg ) {
+				log( logmsg );
+			}
 			resolve();
 		} );
 	} );

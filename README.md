@@ -85,23 +85,44 @@ module.exports = {
 Run any of the below cmd to use this plugin
 
 The below cmd will compile all the files are listed in the ___sofy.js___
-> $ sofy --compile
+
+    $ sofy --compile
+
 
 The below cmd will trigger `gulp.watch` function to keep track of files changes and compiles the given file.
-> $ sofy --watch
+
+    $ sofy --watch
+
 
 Below cmd will create a basic **Sofy** Config File
-> $ sofy --create sofy ./ 
+
+    $ sofy --create sofy ./
+
 
 Below CMD will create a basic **RollUP** Config File
-> $ sofy --create rollup ./
 
-Below CMD will create a basic **Package.json** Config File
-> $ sofy --create npm ./
+    $ sofy --create rollup ./
+
+
+Below CMD will create a basic **.babelrc** Config File
+
+    $ sofy --create bable ./
+
+
+Below CMD will create a basic **babeljs** Config File
+
+    $ sofy --create babeljs ./
+
+
+Below CMD will create a basic **package.json** Config File
+
+    $ sofy --create npm ./
+
+Below CMD Will create all config files in the given location
+
+    $ sofy --create all ./
 
 ---
-
-> Running `sofy --create all ./` will create all config files
 
 ## Builtin Tasks
 Blow is a list of task / config options for each file object.
